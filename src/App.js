@@ -26,6 +26,7 @@ class App extends Component {
     .then(function (response) {
       let currentTemperatures = Object.assign({}, context.state.currentTemperatures);
       console.log(currentTemperatures);
+      //create utils function for turning Kelvin into Celsius
       currentTemperatures[city] = (response.data.main.temp - 273.15).toFixed(2);
       context.setState({ currentTemperatures });
     })
