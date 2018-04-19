@@ -7,7 +7,7 @@ class CityWeather extends Component {
         super(props);
 
         this.state = {
-            currentTemperatures: {},
+            currentWeatherData: {},
         };
 
         this.fetchWeather = this.fetchWeather.bind(this);
@@ -21,11 +21,11 @@ class CityWeather extends Component {
         let context = this;
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
             .then(function (response) {
-                let currentTemperatures = Object.assign({}, context.state.currentTemperatures);
-                console.log(currentTemperatures);
+                let currentWeatherData = Object.assign({}, context.state.currentWeatherData);
+                console.log(currentWeatherData);
                 //create utils function for turning Kelvin into Celsius
-                currentTemperatures[city] = (response.data.main.temp - 273.15).toFixed(0);
-                context.setState({ currentTemperatures });
+                currentWeatherData['temp'] = (response.data.main.temp - 273.15).toFixed(0);
+                context.setState({ currentWeatherData });
             })
             .catch(function (error) {
                 console.log(error);
@@ -33,9 +33,9 @@ class CityWeather extends Component {
     }
 
     render () {
-        return (
+        return ( Object.keys(this.state.currentWeatherData).length > 0 &&
             <div className="CityWeatherDetails">
-                The weather in {this.props.city} is currently {this.state.currentTemperatures[this.props.city]} °C
+                The weather in {this.props.city} is currently {this.state.currentWeatherData.temp} °C
             </div>
         );
     }

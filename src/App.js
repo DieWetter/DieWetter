@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CityWeather from './Weather.js';
-import logo from './logo.svg';
+import NewsFeed from './NewsFeed.js';
+import logo from './Sun.png';
 import './App.css';
 //import * as config from './config.js'
 
@@ -17,6 +18,8 @@ class App extends Component {
           <CityWeather city="Berlin"/>
           <hr />
           <CityWeather city="San Francisco"/>
+          <NewsFeed city="Berlin"/>
+          <NewsFeed city="San Francisco"/>
       </div>
     );
   }
