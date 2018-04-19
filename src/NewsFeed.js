@@ -14,23 +14,23 @@ class NewsFeed extends Component {
     }
 
     componentDidMount() {
-        this.fetchNews(this.props.city);
+        this.fetchNews(this.props.city, this.props.articles);
     }
 
-    fetchNews(city) {
+    fetchNews(city, articleNumber) {
         let context = this;
         axios.get(`https://newsapi.org/v2/top-headlines?q=${city}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`)
             .then(function (response) {
                 console.log(response.data.articles);
                 let currentNews = [...context.state.currentNews];
-                (response.data.articles).forEach((article) => {
+                (response.data.articles).slice(0,articleNumber).forEach((article) => {
                     let newArticle = {
-                        author: article.author,
+                        source: article.source.id,
                         title: article.title,
                         description: article.description,
                     };
                     currentNews.push(newArticle)
-                })
+                });
                 context.setState({ currentNews });
             })
             .catch(function (error) {
@@ -40,14 +40,12 @@ class NewsFeed extends Component {
 
     render () {
         return (
-            this.state.currentNews.length > 0 && 
-                this.state.currentNews.map((article, index) => 
-                 (
+            this.state.currentNews.length > 0 &&
+            this.state.currentNews.map((article, index) =>
+                (
                     <div key={index} className="cityNews">
-                        {article.author && <div className="cityNews_author">{article.author}</div>}
-                        <div className="cityNews_title">{article.title}</div>
-                        <div className="cityNews_description">{article.description}</div>
-                        <hr/>
+                    <div className="cityNews_title">{article.title} {article.source && <span className="cityNews_source">{article.source}</span>}</div>
+                    <div className="cityNews_description">{article.description}</div>
                     </div>
                 ))
         );
