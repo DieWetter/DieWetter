@@ -7,6 +7,8 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import CityWeather from './Weather.js';
 import NewsFeed from './NewsFeed.js';
 
+import './CityCard.css';
+
 class CityCard extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +16,7 @@ class CityCard extends Component {
 
     render() {
         return (
-            <Card>
+            <Card className="City">
                 <CardHeader
                     title={this.props.city}
                 />
@@ -23,8 +25,10 @@ class CityCard extends Component {
                         <CityWeather city={this.props.city}/>
                     </div>
                     <div className="News">
-                        <div className="NewsHeader">News</div>
-                        <NewsFeed city={this.props.city} articles="3"/>
+                        <div className="News-header">News</div>
+                        <div className="News-text">
+                            <NewsFeed city={this.props.city} articles="3"/>
+                        </div>
                     </div>
                 </CardText>
             </Card>

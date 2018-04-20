@@ -4,6 +4,8 @@ import { VictoryChart, VictoryLine } from 'victory';
 //Material UI
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
+import './ComparisonCard.css';
+
 class Comparisoncard extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +14,7 @@ class Comparisoncard extends Component {
 //Wollte mal nen anderes tool als chart.js und so benutzen fuer die graphen
     render() {
         return (
-            <Card>
+            <Card className = "Comparison">
                 <CardHeader
                     title={`${this.props.cities[0]} VS ${this.props.cities[1]}`}
                     titleColor={"white"}

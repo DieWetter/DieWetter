@@ -5,7 +5,8 @@ import axios from 'axios';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar';
+//import AppBar from 'material-ui/AppBar';
+import Grid from 'material-ui-next/Grid';
 
 //Feeds
 import CityCard from './CityCard.js';
@@ -46,19 +47,30 @@ class App extends Component {
   render() {
     return (
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-          <AppBar title="DieWetter" />
           <div className="App">
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">DieWetter</h1>
+              <span className="App-title">DieWetter</span>
             </header>
 
             <body>
-              <CityCard city="Berlin"/>
-              <div className="comparison_card">
-                <Comparisoncard data={this.state.data} cities={this.state.cities} />
-              </div>
-              <CityCard city="San Francisco"/>
+            <Grid container spacing={0}>
+              <Grid item xs={12} md={4}>
+                <div className="city_card">
+                  <CityCard city="Berlin"/>
+                </div>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <div className="comparison_card">
+                  <Comparisoncard data={this.state.data} cities={this.state.cities} />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <div className="city_card">
+                  <CityCard city="San Francisco"/>
+                </div>
+              </Grid>
+            </Grid>
             </body>
 
           </div>

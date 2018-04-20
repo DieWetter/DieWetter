@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "material-ui": "^0.20.0",
+    "material-ui-next": "git+https://github.com/uplevel-technology/material-ui-next.git",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",

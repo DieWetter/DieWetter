@@ -1,0 +1,14 @@
+.CityNews {
+    margin:0.4em;
+    border-top:1pt solid #222222;
+    padding:2em;
+}
+
+.CityNews-title {
+    text-align:center;
+    font-weight:bold;
+}
+
+.News-button {
+    color:white !important;
+}
