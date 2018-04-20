@@ -17,9 +17,6 @@ class CityCard extends Component {
     render() {
         return (
             <Card className="City">
-                <CardHeader
-                    title={this.props.city}
-                />
                 <CardText>
                     <div className="Weather">
                         <CityWeather city={this.props.city}/>

@@ -1,0 +1,17 @@
+.CityWeatherDetails {
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-color:#444444!important;
+    border-radius:4px!important;
+    border:1pt solid #111111!important;
+}
+
+.CityWeatherDetails_Header {
+    text-align: left;
+}
+
+.CityWeatherDetails_Temp {
+    font-size: 5em;
+}
+
+
