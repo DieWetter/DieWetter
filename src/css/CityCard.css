@@ -1,13 +1,14 @@
 .City {
     min-height:calc(100vh - 80px);
     max-height:calc(100vh - 80px);
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .News {
-    margin-top:2em;
+    /* margin-top:2em; */
     background: #444444;
-    border-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     border:1pt solid #111111;
 }
 

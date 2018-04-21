@@ -2,7 +2,8 @@
     background-repeat: no-repeat!important;
     background-size: cover!important;
     background-color:#444444!important;
-    border-radius:4px!important;
+    border-top-left-radius:4px!important;
+    border-top-right-radius:4px!important;
     border:1pt solid #111111!important;
 }
 

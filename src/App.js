@@ -66,7 +66,7 @@ class App extends Component {
               </Grid>
               <Grid item xs={12} md={4}>
                 <div className="city_card">
-                  <CityCard city="San Francisco"timeZone="America/San_Francisco"/>
+                  <CityCard city="San Francisco" timeZone="America/Los_Angeles"/>
                 </div>
               </Grid>
             </Grid>
