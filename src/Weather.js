@@ -16,12 +16,32 @@ class CityWeather extends Component {
 
         this.state = {
             currentWeatherData: {},
+            currentTime: "",
         };
         this.fetchWeather = this.fetchWeather.bind(this);
+        this.setTime = this.setTime.bind(this);
     }
 
     componentDidMount() {
         this.fetchWeather(this.props.city);
+        setInterval(() => this.setTime(this.props.city), 1000);
+    }
+
+    setTime(city) {
+        if(city === "San Francisco") {
+            city = "Los Angeles";
+        }
+        city = city.split(" ").join("_");
+        let currentZone = "";
+        if(city === "Berlin") {
+            currentZone = "Europe";
+            //moment.locale("de");
+        }else {
+            currentZone = "America";
+            //moment.locale("en");
+        }
+        let currentTime = moment.tz(`${currentZone}/${city}`).format('MMMM Do YYYY, h:mm:ss a z');
+        this.setState({ currentTime });
     }
 
     fetchWeather(city) {
@@ -53,7 +73,7 @@ class CityWeather extends Component {
                 <CardHeader
                     className="CityWeatherDetails_Header"
                     title={this.props.city}
-                    //subtitle= Current date and time with local time zone and DST
+                    subtitle={this.state.currentTime}
                 />
                 <CardText>
                     <div>
@@ -75,12 +95,12 @@ class CityWeather extends Component {
                                     <TableRowColumn className="WeatherDetails-value">{this.state.currentWeatherData.windyness}m/s</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
-                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunset"/></TableRowColumn>
-                                    <TableRowColumn className="WeatherDetails-value">{moment.unix(this.state.currentWeatherData.sunset).format("h:mm:ss a")}</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
                                     <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunrise"/></TableRowColumn>
                                     <TableRowColumn className="WeatherDetails-value">{moment.unix(this.state.currentWeatherData.sunrise).format("h:mm:ss a")}</TableRowColumn>
+                                </TableRow>
+                                <TableRow>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunset"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{moment.unix(this.state.currentWeatherData.sunset).format("h:mm:ss a")}</TableRowColumn>
                                 </TableRow>
                             </TableBody>
                         </Table>
