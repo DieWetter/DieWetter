@@ -462,6 +462,9 @@
 .wi-humidity:before {
   content: "\f07a";
 }
+.wi.wi-humidity {
+  padding-right: 0.3em;
+}
 .wi-na:before {
   content: "\f07b";
 }

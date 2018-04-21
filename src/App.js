@@ -10,7 +10,7 @@ import Grid from 'material-ui-next/Grid';
 
 //Feeds
 import CityCard from './CityCard.js';
-import Comparisoncard from './ComparisonCard.js';
+import ComparisonCard from './ComparisonCard.js';
 
 import logo from './img/Sun.png';
 import './css/App.css';
@@ -53,25 +53,23 @@ class App extends Component {
               <span className="App-title">DieWetter</span>
             </header>
 
-            <body>
             <Grid container spacing={0}>
               <Grid item xs={12} md={4}>
                 <div className="city_card">
-                  <CityCard city="Berlin"/>
+                  <CityCard city="Berlin" timeZone="Europe/Berlin"/>
                 </div>
               </Grid>
               <Grid item xs={12} md={4}>
                 <div className="comparison_card">
-                  <Comparisoncard data={this.state.data} cities={this.state.cities} />
+                  <ComparisonCard data={this.state.data} cities={this.state.cities} />
                 </div>
               </Grid>
               <Grid item xs={12} md={4}>
                 <div className="city_card">
-                  <CityCard city="San Francisco"/>
+                  <CityCard city="San Francisco"timeZone="America/San_Francisco"/>
                 </div>
               </Grid>
             </Grid>
-            </body>
 
           </div>
         </MuiThemeProvider>

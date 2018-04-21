@@ -19,7 +19,7 @@ class CityCard extends Component {
             <Card className="City">
                 <CardText>
                     <div className="Weather">
-                        <CityWeather city={this.props.city}/>
+                        <CityWeather city={this.props.city} timeZone={this.props.timeZone}/>
                     </div>
                     <div className="News">
                         <div className="News-header">News</div>

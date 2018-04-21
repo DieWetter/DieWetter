@@ -6,7 +6,7 @@ import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 import './css/ComparisonCard.css';
 
-class Comparisoncard extends Component {
+class ComparisonCard extends Component {
     constructor(props) {
         super(props);
     }
@@ -36,4 +36,4 @@ class Comparisoncard extends Component {
 }
 }
 
-export default Comparisoncard;
+export default ComparisonCard;
