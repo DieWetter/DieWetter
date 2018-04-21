@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+//Material UI
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import FontIcon from 'material-ui/FontIcon';
 import Grid from 'material-ui-next/Grid';
 import Icon from 'material-ui-next/Icon';
 import Button from 'material-ui-next/Button';
-import { withStyles } from 'material-ui/styles';
 
-import './NewsFeed.css';
+import './css/NewsFeed.css';
 
 // get weather information for a given city
 class NewsFeed extends Component {

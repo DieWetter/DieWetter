@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { VictoryChart, VictoryLine } from 'victory';
 
 //Material UI
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
-import './ComparisonCard.css';
+import './css/ComparisonCard.css';
 
 class Comparisoncard extends Component {
     constructor(props) {

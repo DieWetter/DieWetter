@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 //Material UI
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardText} from 'material-ui/Card';
 
 //Feeds
 import CityWeather from './Weather.js';
 import NewsFeed from './NewsFeed.js';
 
-import './CityCard.css';
+import './css/CityCard.css';
 
 class CityCard extends Component {
     constructor(props) {

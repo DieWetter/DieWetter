@@ -4,9 +4,10 @@ import moment from 'moment';
 
 //Material UI
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table';
 
-import './Weather.css';
+import './css/Weather.css';
+import './css/weather-icons.css';
 
 // get weather information for a given city
 class CityWeather extends Component {
@@ -59,20 +60,30 @@ class CityWeather extends Component {
                         <div className="CityWeatherDetails_Temp">{this.state.currentWeatherData.temp} °C</div>
                     </div>
                     <div className="CityWeatherDetails_extra">
-                    {/* <List>
-                        <ListItem>
-                            <ListItemText primary="Cloudy" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemText primary="Sunset"/>
-                        </ListItem>
-                    </List> */}
-                    Cloudy: {this.state.currentWeatherData.cloudiness}%<br/>
-                    Humidity: {this.state.currentWeatherData.cloudiness}%<br/>
-                    Wind: {this.state.currentWeatherData.windyness}m/s<br/>
-                    Sunset: {moment(this.state.currentWeatherData.sunset).format("h:mm:ss a")}<br/>
-                    Sunrise: {moment(this.state.currentWeatherData.sunrise).format("h:mm:ss a")}
-
+                        <Table className="WeatherDetails-table">
+                            <TableBody displayRowCheckbox={false}>
+                                <TableRow>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-day-cloudy-high"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{this.state.currentWeatherData.cloudiness}%</TableRowColumn>
+                                </TableRow>
+                                <TableRow>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-humidity"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{this.state.currentWeatherData.humidity}%</TableRowColumn>
+                                </TableRow>
+                                <TableRow>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-day-windy"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{this.state.currentWeatherData.windyness}m/s</TableRowColumn>
+                                </TableRow>
+                                <TableRow>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunset"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{moment(this.state.currentWeatherData.sunset).format("h:mm:ss a")}</TableRowColumn>
+                                </TableRow>
+                                <TableRow>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunrise"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{moment(this.state.currentWeatherData.sunrise).format("h:mm:ss a")}</TableRowColumn>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
                     </div>
                 </CardText>
             </Card>

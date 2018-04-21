@@ -12,8 +12,8 @@ import Grid from 'material-ui-next/Grid';
 import CityCard from './CityCard.js';
 import Comparisoncard from './ComparisonCard.js';
 
-import logo from './Sun.png';
-import './App.css';
+import logo from './img/Sun.png';
+import './css/App.css';
 //import * as config from './config.js'
 
 

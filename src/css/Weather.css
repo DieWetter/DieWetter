@@ -1,0 +1,38 @@
+.CityWeatherDetails {
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-color:#444444!important;
+    border-radius:4px!important;
+    border:1pt solid #111111!important;
+}
+
+.WeatherDetails-table {
+    background: transparent !important;
+    border:none !important;
+}
+
+.WeatherDetails-table tr {
+    border-bottom: none !important;
+    height:28px !important;
+}
+
+.WeatherDetails-name {
+    text-align: right !important;
+    padding-right:0 !important;;
+    height:30px !important;
+}
+
+.WeatherDetails-value {
+    padding-left:5px !important;
+    height:30px !important;
+}
+
+.CityWeatherDetails_Header {
+    text-align: left;
+}
+
+.CityWeatherDetails_Temp {
+    font-size: 5em;
+}
+
+
