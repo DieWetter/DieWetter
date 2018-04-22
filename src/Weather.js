@@ -96,11 +96,11 @@ class CityWeather extends Component {
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunrise"/></TableRowColumn>
-                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunrise, this.props.timeZone).format("h:mm:ss a")}</TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunrise*1000, this.props.timeZone).format("h:mm:ss a")}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunset"/></TableRowColumn>
-                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunset, this.props.timeZone).format("h:mm:ss a")}</TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunset*1000, this.props.timeZone).format("h:mm:ss a")}</TableRowColumn>
                                 </TableRow>
                             </TableBody>
                         </Table>
