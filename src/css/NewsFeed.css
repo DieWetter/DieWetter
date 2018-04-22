@@ -4,6 +4,10 @@
     padding:2em;
 }
 
+.News-stepper {
+    background: gray !important;
+    padding:2px !important;
+ }
 .CityNews-title {
     text-align:center;
     font-weight:bold;

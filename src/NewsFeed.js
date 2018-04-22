@@ -8,8 +8,86 @@ import FontIcon from 'material-ui/FontIcon';
 import Grid from 'material-ui-next/Grid';
 import Icon from 'material-ui-next/Icon';
 import Button from 'material-ui-next/Button';
+import MobileStepper from 'material-ui-next/MobileStepper';
 
 import './css/NewsFeed.css';
+
+//create stepper to display news feed
+class NewsStepper extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeNews: 0,
+        };
+
+        this.showArticleContent = this.showArticleContent.bind(this);
+    }
+
+    nextNews = () => {
+        this.setState({
+            activeNews: this.state.activeNews + 1,
+        });
+    };
+
+    prevNews = () => {
+        this.setState({
+            activeNews: this.state.activeNews - 1,
+        });
+    };
+
+    //needs rework! ###################################
+    showArticleContent(stepIndex) {
+        switch (stepIndex) {
+            case 0:
+                return (
+                    <Grid container className="News-container">
+                        <Grid item xs={6} sm={4} md={8}>
+                            <Chip>
+                                <Avatar icon={<FontIcon className="material-icons">language</FontIcon>} />
+                                Article source
+                            </Chip>
+                        </Grid>
+                        <Grid item xs={6} sm={4} md={4}>
+                            <Button className="News-button" /*onClick={() => {window.open(article.url)}}*/ variant="raised">
+                                <Icon className="material-icons">import_contacts</Icon> Read
+                            </Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <div className="CityNews-title">title</div>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <div className="CityNews-description">description</div>
+                        </Grid>
+                    </Grid>
+                );
+            case 1:
+                return "No news";
+            case 2:
+                return "No news";
+        }
+    }
+    render() {
+        return (
+            <div>
+                <MobileStepper
+                    variant="dots"
+                    steps={3}
+                    position="static"
+                    activeStep={this.state.activeNews}
+                    className="News-stepper"
+                    nextButton={
+                        <Button size="small" onClick={this.nextNews} disabled={this.state.activeNews === 2}>Next <Icon className="material-icons">keyboard_arrow_right</Icon></Button>
+                    }
+                    backButton={
+                    <Button size="small" onClick={this.prevNews} disabled={this.state.activeNews === 0}><Icon className="material-icons">keyboard_arrow_left</Icon> Previous</Button>
+                    }
+                />
+                <div>{this.showArticleContent(this.state.activeNews)}</div>
+            </div>
+        );
+    }
+}
 
 // get weather information for a given city
 class NewsFeed extends Component {
@@ -40,7 +118,7 @@ class NewsFeed extends Component {
                         title: article.title,
                         description: article.description,
                     };
-                    currentNews.push(newArticle)
+                    currentNews.push(newArticle);
                 });
                 context.setState({ currentNews });
             })
@@ -51,7 +129,12 @@ class NewsFeed extends Component {
 
     render () {
         return (
-            this.state.currentNews.length > 0 &&
+            <div>
+                <NewsStepper/>
+            </div>
+
+            //needs to be implemented into stepper ################
+            /*this.state.currentNews.length > 0 &&
             this.state.currentNews.map((article, index) =>
                 (
                     <div key={index} className="CityNews">
@@ -75,7 +158,7 @@ class NewsFeed extends Component {
                             </Grid>
                         </Grid>
                     </div>
-                ))
+                ))*/
         );
     }
 }

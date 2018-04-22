@@ -95,12 +95,8 @@ class CityWeather extends Component {
                                     <TableRowColumn className="WeatherDetails-value">{this.state.currentWeatherData.windyness}m/s</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
-                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunrise"/></TableRowColumn>
-                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunrise*1000, this.props.timeZone).format("h:mm:ss a")}</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunset"/></TableRowColumn>
-                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunset*1000, this.props.timeZone).format("h:mm:ss a")}</TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-name"><i className="wi wi-sunrise"/> / <i className="wi wi-sunset"/></TableRowColumn>
+                                    <TableRowColumn className="WeatherDetails-value">{moment.tz(this.state.currentWeatherData.sunrise*1000, this.props.timeZone).format("h:mm a")} / {moment.tz(this.state.currentWeatherData.sunset*1000, this.props.timeZone).format("h:mm a")}</TableRowColumn>
                                 </TableRow>
                             </TableBody>
                         </Table>

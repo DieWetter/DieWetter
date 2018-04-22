@@ -18,7 +18,7 @@
 }
 
 .WeatherDetails-name {
-    width:40%;
+    width:35%;
     text-align: right !important;
     padding-right:0 !important;;
     height:30px !important;
@@ -34,7 +34,7 @@
 }
 
 .CityWeatherDetails_Temp {
-    font-size: 5em;
+    font-size: 4em;
 }
 
 
