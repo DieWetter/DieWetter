@@ -1,7 +1,7 @@
 .City {
     min-height:calc(100vh - 80px);
     max-height:calc(100vh - 80px);
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .News {
