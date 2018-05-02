@@ -20,7 +20,7 @@ class ComparisonCard extends Component {
     }
 
     componentDidMount() {
-        this.get5DayForecast(this.props.cities[0], 0);
+        //this.get5DayForecast(this.props.cities[0], 0);
         //this.get5DayForecast(this.props.cities[1], 1);
     }
 
